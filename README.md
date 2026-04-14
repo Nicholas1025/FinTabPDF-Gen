@@ -60,28 +60,6 @@ Every table, row, cell, and word has both coordinate representations.
 
 ---
 
-## Differences from Original SynFinTabs
-
-| Feature | SynFinTabs (original) | FinTabPDF-Gen (this project) |
-|---|---|---|
-| Output format | PNG image | PDF with native text layer |
-| Coordinates | Pixel only | Pixel + PDF points |
-| OCR needed | Yes (for downstream use) | No (text layer readable directly) |
-| Camelot compatible | ❌ | ✅ |
-| pdfplumber compatible | ❌ | ✅ |
-| Word-level bbox | ✅ | ✅ |
-| QA pairs | ✅ | ✅ |
-
----
-
-## Limitations
-
-- **Numbers are not financially consistent** — subtotals and totals do not add up. This is inherited from the original generator and is planned for improvement.
-- **Synthetic vocabulary** — row labels use random English words, not real financial line items (e.g. "Revenue", "EBIT").
-- **No document context** — each PDF contains only the table on a blank A4 page. There is no surrounding text, page numbers, or headers as found in real financial reports.
-- **No rowspan/colspan in GT** — cells with `colspan=2` (double-column mode) are not explicitly marked in the annotation structure.
-
----
 
 ## Installation
 
@@ -109,19 +87,6 @@ python generate.py --count 200 --output ./data --name test
 ```
 
 Speed: ~2–3 seconds per sample.
-
----
-
-## Using with Camelot
-
-```python
-import camelot
-
-tables = camelot.read_pdf("output/synfintabnet_pdf/pdf/HF61dtR6l0L.pdf",
-                          flavor="lattice")  # use 'stream' for borderless themes
-df = tables[0].df
-print(df)
-```
 
 ---
 
