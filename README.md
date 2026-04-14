@@ -75,7 +75,7 @@ Chrome must be installed (used headless for rendering and PDF export).
 ## Usage
 
 ```bash
-# Generate 100 samples (default output: ./output/synfintabnet_pdf/)
+# Generate 100 samples (default output: ./output/FinTab_PDF/)
 python generate.py --count 100
 
 # Custom output directory and dataset name
@@ -95,7 +95,7 @@ Speed: ~2–3 seconds per sample.
 ```python
 import pdfplumber
 
-with pdfplumber.open("output/synfintabnet_pdf/pdf/HF61dtR6l0L.pdf") as pdf:
+with pdfplumber.open("output/FinTab_PDF/pdf/HF61dtR6l0L.pdf") as pdf:
     words = pdf.pages[0].extract_words()
     # Each word: {'text': ..., 'x0': ..., 'y0': ..., 'x1': ..., 'y1': ...}
     # pdfplumber uses top-left origin; compare against bbox_pdf with y-flip:
