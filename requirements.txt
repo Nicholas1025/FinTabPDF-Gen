@@ -1,0 +1,6 @@
+selenium>=4.19.0
+nltk>=3.9.1
+htmltree>=0.7.6
+nanoid>=2.0.0
+numpy>=1.21
+tqdm>=4.66.2
