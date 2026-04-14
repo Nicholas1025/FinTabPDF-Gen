@@ -107,8 +107,8 @@ with pdfplumber.open("output/synfintabnet_pdf/pdf/HF61dtR6l0L.pdf") as pdf:
 ## Project Structure
 
 ```
-synfintabnet-pdf/
-├── synfintabnet_pdf/
+FinTabPDF/
+├── FinTabPDF/
 │   ├── config.py               # DatasetConfig dataclass
 │   ├── generator_table.py      # Randomised table data structure
 │   ├── generator_theme.py      # 6 CSS visual themes
